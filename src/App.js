@@ -11,7 +11,7 @@ const App = () => {
       .then(data => {
         setData(data)
       })
-      .catch(err => setTimeout(getData,1000))
+      .catch(() => setTimeout(getData,1000))
 
   };
 
@@ -27,7 +27,7 @@ const App = () => {
 
   return (
     <>
-      <h1 className={'header'}>Corona = Big Bad</h1>
+      <h1 className={'header'}>COVID-19</h1>
       <div style={{margin: 10}}>
         <DataComponent global data={data.Global} title={"World Figures"} date={data.Date}/>
         <DropDownComponent data={data.Countries} selected={selected} set={data => setSelected(data)}/>

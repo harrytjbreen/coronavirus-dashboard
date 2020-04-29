@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import DataComponent from "./components/DataComponent";
+import DropDownComponent from "./components/DropdownComponent";
 
-function App() {
+const App = () => {
+
+  const getData = () => {
+
+    fetch("https://api.covid19api.com/summary")
+      .then(res => res.json())
+      .then(data => {
+        setData(data)
+      })
+      .catch(err => setTimeout(getData,1000))
+
+  };
+
+  const [data, setData] = useState({Global: {}, Countries: []});
+  const [selected, setSelected] = useState(null);
+
+  useEffect(() => {
+    getData();
+    const update = setInterval(getData, 60000);
+    return (() => clearInterval(update))
+  },[]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className={'header'}>Corona = Big Bad</h1>
+      <div style={{margin: 10}}>
+        <DataComponent global data={data.Global} title={"World Figures"} date={data.Date}/>
+        <DropDownComponent data={data.Countries} selected={selected} set={data => setSelected(data)}/>
+        {selected && <DataComponent data={selected} title={selected.Country} date={selected.Date}/>}
+      </div>
+    </>
   );
-}
+};
+
+
 
 export default App;

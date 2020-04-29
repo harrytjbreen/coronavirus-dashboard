@@ -1,0 +1,23 @@
+$theme-colors: (
+        "secondary": #63e2fd,
+        "info": #f8362a,
+);
+@import "~bootstrap/scss/bootstrap";
+
+.alert{
+  margin-top: 20px;
+}
+
+.dropdown{
+  margin-bottom: 20px;
+}
+
+.header{
+  padding: 20px;
+  color: #403049;
+  background-color: #bc98f1;
+}
+
+body{
+
+}

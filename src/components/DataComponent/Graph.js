@@ -56,8 +56,8 @@ const Graph = ({deaths}) =>{
 
   return(
     <>
-      <Button onClick={() => handleButtonClick(-1)} variant={"primary"}>←</Button>
-      <Button onClick={() => handleButtonClick(1)} style={{ marginLeft: "auto", display: 'flex', justifyContent: 'flex-end' }} variant={"secondary"}>→</Button>
+      <Button onClick={() => handleButtonClick(-1)} variant={"outline-success"}>←</Button>
+      <Button onClick={() => handleButtonClick(1)} style={{ marginLeft: "auto", display: 'flex', justifyContent: 'flex-end' }} variant={"outline-success"}>→</Button>
       {graphNum === 0 && <Line
         data={dataGraphOne}
         width={width}

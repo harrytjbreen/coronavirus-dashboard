@@ -8,8 +8,15 @@ const getDataUK = async () => {
         values = {
           TotalConfirmed: data.data.dailyRecords.totalLabConfirmedCases,
           NewConfirmed: data.data.dailyRecords.dailyLabConfirmedCases,
-          TotalRecovered: -1,
-          date: new Date(Date.parse(data.data.metadata.lastUpdatedAt)).toLocaleString()
+          TotalRecovered: "-",
+          date: new Date(Date.parse(data.data.metadata.lastUpdatedAt)).toLocaleString(),
+          cases: data.data.countries,
+          titles: {
+            totalDeaths: "Total Deaths (UK)",
+            totalCases: "Total Cases (England)",
+            dailyDeaths: "Daily Deaths (UK)",
+            dailyCases: "Daily Cases (England)"
+          }
         };
         resolve(true)
       })

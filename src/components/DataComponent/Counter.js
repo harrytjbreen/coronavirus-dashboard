@@ -15,7 +15,7 @@ const Counter = ({name, variant, number,cases, percent}) =>(
 
 const replace = x =>{
   if(x === -1) return "-";
-  return x ? x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") : '-';
+  return x ? x : '-';
 };
 
 export default Counter;

@@ -31,6 +31,7 @@ const App = () => {
       <div style={{margin: 10}}>
         <DataComponent global data={data.Global} title={"World Figures"} date={data.Date}/>
         <DropDownComponent data={data.Countries} selected={selected} set={data => setSelected(data)}/>
+        <br/>
         {selected && <DataComponent data={selected} title={selected.Country} date={selected.Date}/>}
       </div>
     </>

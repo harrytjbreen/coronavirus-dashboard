@@ -2,7 +2,7 @@ import React from "react";
 import {Dropdown} from "semantic-ui-react";
 
 const DropDownComponent = ({data, set}) => {
-  if (data !== undefined) {
+  if (data !== null) {
     const countries = data.map(country => ({
         "key": country.Country,
         "text": country.Country,
@@ -22,6 +22,7 @@ const DropDownComponent = ({data, set}) => {
               if(selected.value === country.Country){
                 set(country)
               }
+              return null
             })
           }}
         />

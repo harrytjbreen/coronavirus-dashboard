@@ -14,8 +14,7 @@ const Counter = ({name, variant, number,cases, percent}) =>(
 );
 
 const replace = x =>{
-  if(x === -1) return "-";
-  return x ? x : '-';
+  return x ? x.toLocaleString() : '-';
 };
 
 export default Counter;

@@ -27,10 +27,7 @@ const App = () => {
   useEffect(() => {
     (async () => {
       if (selected) {
-        let historicalData;
         await getData(`https://api.covid19api.com/total/country/${selected.Slug}`)
-          .then(data => historicalData = data);
-        await getData(`https://api.covid19api.com/country/${selected.Slug}`)
           .then(data => {
             const today = data[data.length-1];
             const yesterday = data[data.length-2];
@@ -41,7 +38,7 @@ const App = () => {
               todayCases: today.Confirmed - yesterday.Confirmed,
               todayDeaths: today.Deaths - yesterday.Deaths,
               Date: today.Date,
-              historicalData: historicalData,
+              historicalData: data,
           })})
       }
     })();

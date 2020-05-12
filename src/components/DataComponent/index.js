@@ -5,7 +5,6 @@ import Graph from "./Graph";
 
 const DataComponent = ({data, title, global}) =>(
   <>
-    {console.log(data)}
     <h1>{title}</h1>
     <Row>
       <Counter name={`Confirmed Cases`} variant={'primary'} number={data.cases}/>
